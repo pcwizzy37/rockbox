@@ -148,6 +148,7 @@ enum infoscreenorder
     INFO_DISK2, /* free space or external capacity/free on hotswap */
     INFO_BUFFER,
     INFO_VERSION,
+    INFO_BUILD,
     INFO_COUNT
 };
 
@@ -174,6 +175,10 @@ static const char* info_getname(int selected_item, void *data,
     }
     switch (selected_item)
     {
+	case INFO_BUILD:
+            snprintf(buffer, buffer_len, "Build info: Built on nathaniel-ProBookL");
+            break;
+
         case INFO_VERSION:
             snprintf(buffer, buffer_len, "%s: %s", 
                      str(LANG_VERSION), rbversion);

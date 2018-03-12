@@ -1,0 +1,3 @@
+[submodule "apps/plugins/infones"]
+	path = apps/plugins/infones
+	url = https://github.com/pcwizzy37/infones.git

@@ -181,14 +181,14 @@ int storage_init(void)
 #endif
 
 #if (CONFIG_STORAGE & STORAGE_NAND)
-    if ((rc=nand_init())) return rc;
-    
-    int nand_drives = nand_num_drives(num_drives);
-    for (i=0; i<nand_drives; i++)
-    {
-        storage_drivers[num_drives++] =
-            (STORAGE_NAND<<DRIVER_OFFSET) | (i << DRIVE_OFFSET);
-    }
+//    if ((rc=nand_init())) return rc;
+//    
+//    int nand_drives = nand_num_drives(num_drives);
+//    for (i=0; i<nand_drives; i++)
+//    {
+//        storage_drivers[num_drives++] =
+//            (STORAGE_NAND<<DRIVER_OFFSET) | (i << DRIVE_OFFSET);
+//    }
 #endif
 
 #if (CONFIG_STORAGE & STORAGE_RAMDISK)
@@ -518,7 +518,7 @@ void storage_get_info(int drive, struct storage_info *info)
 
 #if (CONFIG_STORAGE & STORAGE_NAND)
     case STORAGE_NAND:
-        return nand_get_info(ldrive,info);
+//        return nand_get_info(ldrive,info);
 #endif
 
 #if (CONFIG_STORAGE & STORAGE_RAMDISK)

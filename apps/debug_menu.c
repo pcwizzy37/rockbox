@@ -1729,14 +1729,14 @@ static int disk_callback(int btn, struct gui_synclist *lists)
     simplelist_addline("Vendor: %s", info.vendor);
     simplelist_addline("Model: %s", info.product);
     simplelist_addline("Firmware: %s", info.revision);
-    simplelist_addline(
-             "Size: %ld MB", info.num_sectors*(info.sector_size/512)/2024);
-    unsigned long free;
-    volume_size( IF_MV(0,) NULL, &free );
-    simplelist_addline(
-             "Free: %ld MB", free / 1024);
-    simplelist_addline(
-             "Cluster size: %d bytes", volume_get_cluster_size(IF_MV(0)));
+//    simplelist_addline(
+//             "Size: %ld MB", info.num_sectors*(info.sector_size/512)/2024);
+//    unsigned long free;
+//    volume_size( IF_MV(0,) NULL, &free );
+//    simplelist_addline(
+//             "Free: %ld MB", free / 1024);
+//    simplelist_addline(
+//             "Cluster size: %d bytes", volume_get_cluster_size(IF_MV(0)));
     return btn;
 }
 #endif
@@ -1769,7 +1769,7 @@ static bool dbg_disk_info(void)
     info.title = title;
 #endif
     info.action_callback = disk_callback;
-    info.hide_selection = true;
+    info.hide_selection = false;
     info.scroll_all = true;
     return simplelist_show_list(&info);
 }
